@@ -3,9 +3,9 @@
 </h1>
 
 <ul>
-    <li>Assunto: {{ $support->subject }}</li>
-    <li>Status: {{ $support->status }}</li>
-    <li>Status: {{ $support->body }}</li>
+    <li>ASSUNTO: {{ $support->subject }}</li>
+    <li>STATUS: {{ $support->status === 'a' ? 'Ativo': ($support->status === 'p' ? 'Pendente': 'Cancelado')}}</li>
+    <li>DÚVIDA: {{ $support->body }}</li>
 </ul>
 
 <form action="{{ route('support.destroy', $support->id) }}" method="POST">
