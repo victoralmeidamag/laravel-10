@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Providers;
-namespace App\Repositories;
 
+use App\Repositories\SupportEloquentORM;
 use App\Repositories\SupportRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
-use SupportEloquentORM;
+
 
 class AppServiceProvider extends ServiceProvider
 {
