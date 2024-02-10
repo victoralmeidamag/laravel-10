@@ -12,25 +12,26 @@ class SupportEloquentORM implements SupportRepositoryInterface
 {
     public function __construct(
         protected Support $model
-    ){}
+    ) {
+    }
 
 
     public function getAll(string $filter = null): array
     {
-        return $this->model->where(function ($query) use ($filter){
-            if($filter){
+        return $this->model->where(function ($query) use ($filter) {
+            if ($filter) {
                 $query->where('subject', $filter);
                 $query->orWhere('body', 'like', "%{$filter}%");
             }
-        })  
-        ->get()
-        ->toArray();
+        })
+            ->get()
+            ->toArray();
     }
 
     public function findOne(string $id): stdClass|null
     {
         $support = $this->model->find($id);
-        if(!$support){
+        if (!$support) {
             return null;
         }
         return (object) $support->toArray();
@@ -43,7 +44,7 @@ class SupportEloquentORM implements SupportRepositoryInterface
 
     public function new(CreateSupportDTO $dto): stdClass
     {
-       $support = $this->model->create(
+        $support = $this->model->create(
             (array) $dto
         );
 
@@ -52,7 +53,7 @@ class SupportEloquentORM implements SupportRepositoryInterface
 
     public function update(UpdateSupportDTO $dto): stdClass|null
     {
-        if(!$support = $this->model->find($dto->id)){
+        if (!$support = $this->model->find($dto->id)) {
             return null;
         }
         $support->update(
@@ -60,5 +61,4 @@ class SupportEloquentORM implements SupportRepositoryInterface
         );
         return (object) $support->toArray();
     }
-
 }

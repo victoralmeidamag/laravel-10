@@ -32,7 +32,7 @@ class SupportController extends Controller
         return view('admin.supports.show', compact('support'));
     }
 
-    
+
     public function create()
     {
         return view('admin.supports.create');
@@ -57,9 +57,9 @@ class SupportController extends Controller
 
     public function update(StoreUpdateSupport $request)
     {
-       $support = $this->service->update(UpdateSupportDTO::makeFromRequest($request));
+        $support = $this->service->update(UpdateSupportDTO::makeFromRequest($request));
 
-        if (!$support){
+        if (!$support) {
             return back();
         }
 
