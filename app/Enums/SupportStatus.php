@@ -15,6 +15,6 @@ enum SupportStatus: string
                 return $status->value;
             }
         }
-        throw new \ValueError("$status não está válido");
+        throw new \ValueError(strval($status) . "não está válido");
     }
 }
