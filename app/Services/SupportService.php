@@ -14,10 +14,24 @@ class SupportService{
     )
     {}
 
+    public function paginate(
+        int $page = 1, 
+        int $totalPerPages = 15, 
+        string $filter = null
+        )
+    {
+        return $this->repository->paginate(
+            page: $page,
+            totalPerPages: $totalPerPages,
+            filter: $filter,
+        );
+    }
+
     public function getAll(string $filter = null): array
     {
         return $this->repository->getAll($filter);
     }
+
 
     public function findOne(string $id): stdClass|null
     {
