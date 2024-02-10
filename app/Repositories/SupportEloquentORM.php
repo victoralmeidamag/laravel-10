@@ -13,7 +13,8 @@ class SupportEloquentORM implements SupportRepositoryInterface
 {
     public function __construct(
         protected Support $model
-    ) {}
+    ) {
+    }
 
     public function paginate(int $page = 1, int $totalPerPages = 15, string $filter = null): PaginationInterface
     {
@@ -24,9 +25,10 @@ class SupportEloquentORM implements SupportRepositoryInterface
             }
         })
             ->paginate($totalPerPages, ['*'], 'page', $page);
-            dd($result);
+
+        return new PaginationPresenter($result);
     }
-    
+
 
     public function getAll(string $filter = null): array
     {
