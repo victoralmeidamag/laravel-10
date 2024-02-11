@@ -5,9 +5,7 @@ use App\Http\Controllers\Admin\{SupportController};
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/test', function(){
 
-});
 Route::delete('/suporte/{id}',[SupportController::class, 'destroy'])->name('support.destroy');
 Route::put('/suporte/{id}',[SupportController::class, 'update'])->name('supports.update');
 Route::get('/suporte/{id}/editar', [SupportController::class, 'edit'])->name('supports.edit');

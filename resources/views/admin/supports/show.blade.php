@@ -1,8 +1,9 @@
 <h1>
-    Detalhes da Dúvida {{ $support->id }}
+    Detalhes da Dúvida 
 </h1>
 
 <ul>
+    <li>ID DA DÚVIDA: {{ $support->id }}</li>
     <li>ASSUNTO: {{ $support->subject }}</li>
     <li>STATUS: {{ $support->status === 'a' ? 'Ativo' : ($support->status === 'p' ? 'Pendente' : 'Cancelado') }}</li>
     <li>DÚVIDA: {{ $support->body }}</li>
